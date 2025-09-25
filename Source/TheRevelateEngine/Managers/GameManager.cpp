@@ -1,13 +1,12 @@
 // 2025, The Revelate Engine
 
-
 #include "GameManager.h"
 
 void AGameManager::BeginPlay()
 {
 	Super::BeginPlay();
-	CurrentState = EGameState::DayOne;
-	FString EnumName = UEnum::GetValueAsString(CurrentState);
+	CurrentGameState = EGameState::DayOne;
+	FString EnumName = UEnum::GetValueAsString(CurrentGameState);
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, EnumName);
 
 	OnGameStateChanged.AddUniqueDynamic(this,&AGameManager::HandleGameStateChange); 
@@ -16,10 +15,10 @@ void AGameManager::BeginPlay()
 
 EGameState AGameManager::GetCurrentState() const
 {
-	return CurrentState;
+	return CurrentGameState;
 }
 
-void AGameManager::HandleGameStateChange(EGameState OldState)
+void AGameManager::HandleGameStateChange(EGameState OldState) // Called whenever the player has successfully finished the level 
 {
 	// Here we need to set stuff up to change the game state on next time opening the game as we don't want it to change straight away,
 	// maybe a bool that becomes true.

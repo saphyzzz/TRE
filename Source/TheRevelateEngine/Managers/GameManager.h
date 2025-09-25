@@ -1,4 +1,5 @@
 // 2025, The Revelate Engine 
+
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -19,6 +20,13 @@ enum class EGameState : uint8
 	DayFive       UMETA(DisplayName = "Day Five"),
 };
 
+UENUM(BlueprintType)
+enum class EPlayerState : uint8
+{
+	InEngine      UMETA(DisplayName = "In Engine"),
+	InGame       UMETA(DisplayName = "In Game"),
+};
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateChanged, EGameState, NewState);
 
 UCLASS(BlueprintType, Blueprintable)
@@ -30,7 +38,8 @@ public:
 	UFUNCTION(BlueprintCallable) EGameState GetCurrentState() const;
 	UFUNCTION() void HandleGameStateChange(EGameState OldState);
 
-	UPROPERTY() EGameState CurrentState;
+	UPROPERTY() EGameState CurrentGameState;
+	UPROPERTY() EGameState CurrentPlayerState;
 	UPROPERTY(BlueprintReadWrite) FOnGameStateChanged OnGameStateChanged;
 
 protected:
@@ -38,3 +47,4 @@ protected:
 private:
 	
 };
+ 
