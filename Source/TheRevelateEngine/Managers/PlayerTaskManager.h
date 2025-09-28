@@ -12,6 +12,7 @@
  * 
  */
 
+
 USTRUCT(BlueprintType)
 struct FTaskList
 {
