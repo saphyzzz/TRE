@@ -12,3 +12,8 @@ void UPlayerTask::SetTested(bool InTested)
 {
 	bTested = InTested;
 }
+
+void UPlayerTask::SetTaskDescription(FString InDescription)
+{
+	TaskDescription = InDescription;
+}

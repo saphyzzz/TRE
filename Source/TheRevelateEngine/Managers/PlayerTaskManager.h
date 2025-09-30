@@ -17,7 +17,7 @@ USTRUCT(BlueprintType)
 struct FTaskList
 {
 	GENERATED_BODY()
-
+	
 	UPROPERTY(EditAnywhere, Instanced, BlueprintReadWrite, Category="Tasks")
 	TArray<TObjectPtr<UPlayerTask>> Tasks;
 };
@@ -28,6 +28,10 @@ class THEREVELATEENGINE_API APlayerTaskManager : public AActor
 	GENERATED_BODY()
 
 public:
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tasks")
 	TMap<EGameState, FTaskList> TasksByState;
 };
+// task manager should change the description of a task if bTested has been put on.
+// If something about tasks were to change, say the bTested, this would break my orginal UI plan of having it check that bool and update accordingly,
+// lets keep business logic inside the central data point so the UI just handles displaying visuals for data. 

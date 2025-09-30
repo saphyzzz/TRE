@@ -16,10 +16,12 @@ class THEREVELATEENGINE_API UPlayerTask : public UObject
 
 public:
 	UFUNCTION() void SetCompleted(bool InCompleted); 
-	UFUNCTION() void SetTested(bool InTested); 
+	UFUNCTION() void SetTested(bool InTested);
+	UFUNCTION() void SetTaskDescription(FString InDescription);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FName TaskName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FName TaskEvent;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FString TaskDescription;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Task")	bool bCompleted;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Task")	bool bTested;
 };
