@@ -33,5 +33,5 @@ public:
 	TMap<EGameState, FTaskList> TasksByState;
 };
 // task manager should change the description of a task if bTested has been put on.
-// If something about tasks were to change, say the bTested, this would break my orginal UI plan of having it check that bool and update accordingly,
+// If something about tasks were to change, say the bTested, this would break my original UI plan of having it check that bool and update accordingly,
 // lets keep business logic inside the central data point so the UI just handles displaying visuals for data. 
