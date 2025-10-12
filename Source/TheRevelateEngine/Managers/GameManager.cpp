@@ -10,7 +10,6 @@ void AGameManager::BeginPlay()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, EnumName);
 
 	OnGameStateChanged.AddUniqueDynamic(this,&AGameManager::HandleGameStateChange); 
-
 }
 
 EGameState AGameManager::GetCurrentState() const

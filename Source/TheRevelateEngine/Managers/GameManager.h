@@ -22,7 +22,7 @@ enum class EGameState : uint8
 UENUM(BlueprintType)
 enum class EPlayerState : uint8
 {
-	InEngine      UMETA(DisplayName = "In Engine"),
+	NotInGame      UMETA(DisplayName = "Not in Game"),
 	InGame       UMETA(DisplayName = "In Game"),
 };
 
@@ -43,6 +43,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+	
 private:
 	
 };

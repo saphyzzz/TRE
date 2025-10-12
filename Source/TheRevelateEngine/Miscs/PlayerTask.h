@@ -14,14 +14,14 @@ class THEREVELATEENGINE_API UPlayerTask : public UObject
 {
 	GENERATED_BODY()
 
-public:
-	UFUNCTION() void SetCompleted(bool InCompleted); 
-	UFUNCTION() void SetTested(bool InTested);
-	UFUNCTION() void SetTaskDescription(FString InDescription);
+public: // Do I really need these setters? 
+	UFUNCTION(BlueprintCallable) void SetCompleted(bool InCompleted); 
+	UFUNCTION(BlueprintCallable) void SetTested(bool InTested);
+	UFUNCTION(BlueprintCallable) void SetTaskDescription(FString InDescription);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FName TaskName;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FName TaskEvent;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	FString TaskDescription;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Task")	bool bCompleted;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Task")	bool bTested;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	bool bCompleted;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Task")	bool bTested;
 };
