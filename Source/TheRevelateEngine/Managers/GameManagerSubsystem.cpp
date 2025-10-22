@@ -13,10 +13,10 @@ void UGameManagerSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-EGameState UGameManagerSubsystem::GetCurrentState() const
-{
-	
-}
+// EGameState UGameManagerSubsystem::GetCurrentState() const
+// {
+// 	
+// }
 
 void UGameManagerSubsystem::HandleGameStateChange(EGameState OldState)
 {
