@@ -7,7 +7,7 @@ void AGameManager::BeginPlay()
 	Super::BeginPlay();
 	CurrentGameState = EGameState::DayOne;
 	FString EnumName = UEnum::GetValueAsString(CurrentGameState);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, EnumName);
+	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, EnumName);
 
 	OnGameStateChanged.AddUniqueDynamic(this,&AGameManager::HandleGameStateChange); 
 }
@@ -22,6 +22,11 @@ void AGameManager::HandleGameStateChange(EGameState OldState) // Called whenever
 	// Here we need to set stuff up to change the game state on next time opening the game as we don't want it to change straight away,
 	// maybe a bool that becomes true.
 	// Handle save stuff here maybe? The HUD can change and deactivate from the task manager but we could do a separate call to the UI here.
+}
+
+void AGameManager::SetCurrentState(EGameState NewState)
+{
+	CurrentGameState = NewState;
 }
 
 // The task manager can get the current state and map the correct tasks to display.

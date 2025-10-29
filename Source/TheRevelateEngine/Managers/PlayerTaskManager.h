@@ -3,14 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameManager.h"
+#include "GameManagerSubsystem.h"
 #include "Miscs/PlayerTask.h"
 #include "GameFramework/Actor.h"
 #include "PlayerTaskManager.generated.h"
-
-/**
- * 
- */
 
 
 USTRUCT(BlueprintType)
@@ -29,9 +25,9 @@ class THEREVELATEENGINE_API APlayerTaskManager : public AActor
 public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tasks")
-	TMap<EGameState, FTaskList> TasksByState;
-
-	TArray<TObjectPtr<UPlayerTask>> Tasks = {}; 
+	TMap<EGameStateTest, FTaskList> TasksByState;
+	TArray<TObjectPtr<UPlayerTask>> Tasks = {};
+ 
 };
 // task manager should change the description of a task if bTested has been put on.
 // If something about tasks were to change, say the bTested, this would break my original UI plan of having it check that bool and update accordingly,

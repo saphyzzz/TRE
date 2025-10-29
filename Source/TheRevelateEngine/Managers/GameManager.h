@@ -22,8 +22,8 @@ enum class EGameState : uint8
 UENUM(BlueprintType)
 enum class EPlayerState : uint8
 {
-	NotInGame      UMETA(DisplayName = "Not in Game"),
-	InGame       UMETA(DisplayName = "In Game"),
+	Safe      UMETA(DisplayName = "Safe"),
+	UnSafe       UMETA(DisplayName = "UnSafe"),
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateChanged, EGameState, NewState);
@@ -36,6 +36,7 @@ class THEREVELATEENGINE_API AGameManager : public AActor
 public:
 	UFUNCTION(BlueprintCallable) EGameState GetCurrentState() const;
 	UFUNCTION() void HandleGameStateChange(EGameState OldState);
+	UFUNCTION(BlueprintCallable) void SetCurrentState(EGameState NewState);
 
 	UPROPERTY() EGameState CurrentGameState;
 	UPROPERTY() EGameState CurrentPlayerState;
