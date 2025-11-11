@@ -23,11 +23,12 @@ class THEREVELATEENGINE_API UGameManagerSubsystem : public UGameInstanceSubsyste
 	GENERATED_BODY()
 
 public:
-	// virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-	// virtual void Deinitialize() override;
-
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	UFUNCTION() void HandleWallpaper();
 	UFUNCTION(BlueprintCallable) EGameStateTest SetCurrentGameState(EGameStateTest SavedState, bool bTasksCompleted);
-	
+
+
 	UPROPERTY(SaveGame,BlueprintReadOnly) EGameStateTest CurrentGameState;
 	UPROPERTY(SaveGame, BlueprintReadOnly) EGameStateTest CurrentPlayerState;
+	UPROPERTY(BlueprintReadOnly) UTexture2D* Wallpaper;  
 };

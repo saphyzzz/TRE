@@ -3,11 +3,24 @@
 
 #include "GameManagerSubsystem.h"
 
-// void UGameManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
-// {
-// 	Super::Initialize(Collection);
-// 	// have a check of the current state if it is already five and maybe if the cinematic has been reached then do the black screen with its been done text or something idk.  
-// }
+#include "EngineUtils.h"
+#include "ImageUtils.h"
+
+#if PLATFORM_WINDOWS
+#include "Windows/AllowWindowsPlatformTypes.h"
+#include <windows.h>
+#include <shobjidl_core.h>   
+#include <shlwapi.h>
+#pragma comment(lib, "Ole32.lib")
+#pragma comment(lib, "Shlwapi.lib")
+#endif
+
+void UGameManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+	Super::Initialize(Collection);
+	HandleWallpaper(); 
+	// have a check of the current state if it is already five and maybe if the cinematic has been reached then do the black screen with its been done text or something idk.  
+}
 //
 // void UGameManagerSubsystem::Deinitialize()
 // {
@@ -36,12 +49,18 @@ EGameStateTest UGameManagerSubsystem::SetCurrentGameState(EGameStateTest SavedSt
 	return SavedState;
 }
 
-// EGameState UGameManagerSubsystem::GetCurrentState() const
-// {
-// 	
-// }
+void UGameManagerSubsystem::HandleWallpaper()
+{
+#if PLATFORM_WINDOWS
+	TCHAR buffer[MAX_PATH] = { 0 };
+	if (SystemParametersInfo(SPI_GETDESKWALLPAPER, MAX_PATH, buffer, 0))
+	{
+		FString WallpaperPath = FString(buffer); 
+		TArray<uint8> LoadedData;
+		FFileHelper::LoadFileToArray(LoadedData, *WallpaperPath); 
 
-// void UGameManagerSubsystem::HandleGameStateChange(EGameState OldState)
-// {
-// 	
-// }
+		Wallpaper = FImageUtils::ImportFileAsTexture2D(WallpaperPath);
+	}
+#endif
+	// TODO We'll use a default image or if time incorporate for linux and mac maybe... 
+}
