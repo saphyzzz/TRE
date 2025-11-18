@@ -25,7 +25,7 @@ class THEREVELATEENGINE_API UGameManagerSubsystem : public UGameInstanceSubsyste
 public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	UFUNCTION() void HandleWallpaper();
-	UFUNCTION(BlueprintCallable) EGameStateTest SetCurrentGameState(EGameStateTest SavedState, bool bTasksCompleted);
+ 	UFUNCTION(BlueprintCallable) EGameStateTest SetCurrentGameState(EGameStateTest SavedState, bool bTasksCompleted);
 
 
 	UPROPERTY(SaveGame,BlueprintReadOnly) EGameStateTest CurrentGameState;
