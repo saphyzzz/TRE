@@ -7,7 +7,7 @@
 #include "GameManagerSubsystem.generated.h"
 
 UENUM(BlueprintType)
-enum class EGameStateTest : uint8 // We don't make this blueprintable as designers don't need to modify these values through blueprint 
+enum class EGameState : uint8 // We don't make this blueprintable as designers don't need to modify these values through blueprint 
 {
 	DayOne   UMETA(DisplayName="Day One"),
 	DayTwo   UMETA(DisplayName="Day Two"),
@@ -25,10 +25,10 @@ class THEREVELATEENGINE_API UGameManagerSubsystem : public UGameInstanceSubsyste
 public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	UFUNCTION() void HandleWallpaper();
- 	UFUNCTION(BlueprintCallable) EGameStateTest SetCurrentGameState(EGameStateTest SavedState, bool bTasksCompleted);
+ 	UFUNCTION(BlueprintCallable) EGameState SetCurrentGameState(EGameState SavedState, bool bTasksCompleted);
 
 
-	UPROPERTY(SaveGame,BlueprintReadOnly) EGameStateTest CurrentGameState;
-	UPROPERTY(SaveGame, BlueprintReadOnly) EGameStateTest CurrentPlayerState;
+	UPROPERTY(SaveGame,BlueprintReadOnly) EGameState CurrentGameState;
+	UPROPERTY(SaveGame, BlueprintReadOnly) EGameState CurrentPlayerState;
 	UPROPERTY(BlueprintReadOnly) UTexture2D* Wallpaper;  
 };

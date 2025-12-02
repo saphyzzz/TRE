@@ -25,7 +25,7 @@ class THEREVELATEENGINE_API APlayerTaskManager : public AActor
 public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tasks")
-	TMap<EGameStateTest, FTaskList> TasksByState;
+	TMap<EGameState, FTaskList> TasksByState;
 	TArray<TObjectPtr<UPlayerTask>> Tasks = {};
  
 };

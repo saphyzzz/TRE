@@ -9,15 +9,15 @@
  * Add explanation here queen 
  */
 
-UENUM(BlueprintType)
-enum class EGameState : uint8
-{
-	DayOne      UMETA(DisplayName = "Day One"),
-	DayTwo       UMETA(DisplayName = "Day Two"),
-	DayThree       UMETA(DisplayName = "Day Three"),
-	DayFour       UMETA(DisplayName = "Day Four"),
-	DayFive       UMETA(DisplayName = "Day Five"),
-};
+// UENUM(BlueprintType)
+// enum class EGameState : uint8
+// {
+// 	DayOne      UMETA(DisplayName = "Day One"),
+// 	DayTwo       UMETA(DisplayName = "Day Two"),
+// 	DayThree       UMETA(DisplayName = "Day Three"),
+// 	DayFour       UMETA(DisplayName = "Day Four"),
+// 	DayFive       UMETA(DisplayName = "Day Five"),
+// };
 
 UENUM(BlueprintType)
 enum class EPlayerState : uint8
@@ -26,7 +26,7 @@ enum class EPlayerState : uint8
 	UnSafe       UMETA(DisplayName = "UnSafe"),
 };
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateChanged, EGameState, NewState);
+// DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameStateChanged, EGameState, NewState);
 
 UCLASS(BlueprintType, Blueprintable)
 class THEREVELATEENGINE_API AGameManager : public AActor
@@ -34,13 +34,13 @@ class THEREVELATEENGINE_API AGameManager : public AActor
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintCallable) EGameState GetCurrentState() const;
-	UFUNCTION() void HandleGameStateChange(EGameState OldState);
-	UFUNCTION(BlueprintCallable) void SetCurrentState(EGameState NewState);
-
-	UPROPERTY() EGameState CurrentGameState;
-	UPROPERTY() EGameState CurrentPlayerState;
-	UPROPERTY(BlueprintReadWrite) FOnGameStateChanged OnGameStateChanged;
+	// UFUNCTION(BlueprintCallable) EGameState GetCurrentState() const;
+	// UFUNCTION() void HandleGameStateChange(EGameState OldState);
+	// UFUNCTION(BlueprintCallable) void SetCurrentState(EGameState NewState);
+	//
+	// UPROPERTY() EGameState CurrentGameState;
+	// UPROPERTY() EGameState CurrentPlayerState;
+	// UPROPERTY(BlueprintReadWrite) FOnGameStateChanged OnGameStateChanged;
 
 protected:
 	virtual void BeginPlay() override;
