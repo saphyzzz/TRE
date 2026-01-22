@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(BlueprintType)
+UCLASS(BlueprintType, Blueprintable)
 class THEREVELATEENGINE_API UScareManagerSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
