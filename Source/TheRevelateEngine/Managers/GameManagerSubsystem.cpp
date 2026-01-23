@@ -17,6 +17,7 @@
 
 void UGameManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
+	
 	Super::Initialize(Collection);
 	HandleWallpaper();
 	CurrentGameState = EGameState::DayTwo; 
