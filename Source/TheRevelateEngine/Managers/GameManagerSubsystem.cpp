@@ -20,7 +20,6 @@ void UGameManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	
 	Super::Initialize(Collection);
 	HandleWallpaper();
-	CurrentGameState = EGameState::DayTwo; 
 	// have a check of the current state if it is already five and maybe if the cinematic has been reached then do the black screen with its been done text or something idk.  
 }
 //
@@ -45,9 +44,16 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		{
 			NextGameState = static_cast<EGameState>(NextState);
 		}
+		// DEBUG
+		NextGameState = EGameState::DayTwo;
+		// DEBUG
 		CurrentGameState = NextGameState;
 		return NextGameState;
 	}
+	// DEBUG
+	SavedState = EGameState::DayTwo;
+	// DEBUG
+	CurrentGameState = SavedState;
 	return SavedState;
 }
 
