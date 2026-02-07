@@ -18,5 +18,5 @@ class THEREVELATEENGINE_API ULevelEditorWidget : public UUserWidget
 public:
 	
 	UFUNCTION(BlueprintCallable, Category = "LevelEditorWidget")
-	bool CheckAssetBounds(USizeBox InSizeBox, UUserWidget InWidget); 
+	bool CheckAssetBounds(USizeBox *InSizeBox, UUserWidget *InWidget); 
 };
