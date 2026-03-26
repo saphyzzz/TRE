@@ -26,8 +26,12 @@ void UGameManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 
 EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, bool bTasksCompleted)
 {
+	// DEBUG
+	// SavedState = static_cast<EGameState>(6);
+	// DEBUG
+	
 	// Create pop up window if player has finished all Days, they can no longer enter the game 
-	if (static_cast<int>(SavedState) >= static_cast<int>(EGameState::DayFive))
+	if (static_cast<int>(SavedState) > static_cast<int>(EGameState::DayFive))
 	{
 		LPCWSTR Content = L"Initiation completed, We will call in time.";
 		int Code = MessageBox(NULL, Content, L"Revelate Corporation", MB_OK);
