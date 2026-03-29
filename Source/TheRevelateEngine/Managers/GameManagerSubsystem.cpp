@@ -49,14 +49,14 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		
 		// }
 		// DEBUG
-		NextGameState = EGameState::DayFive;
+		// NextGameState = EGameState::DayOne;
 		// DEBUG
 		
 		CurrentGameState = NextGameState;
 		return NextGameState;
 	}  
 	// DEBUG
-	SavedState = EGameState::DayFive;
+	// SavedState = EGameState::DayFour;
 	// DEBUG
 	CurrentGameState = SavedState;
 	return SavedState;
