@@ -47,7 +47,6 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		int NextState = static_cast<int>(SavedState) + 1;
 		NextGameState = static_cast<EGameState>(NextState);
 		
-		// }
 		// DEBUG
 		// NextGameState = EGameState::DayOne;
 		// DEBUG
@@ -56,7 +55,7 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		return NextGameState;
 	}  
 	// DEBUG
-	// SavedState = EGameState::DayFour;
+	SavedState = EGameState::DayThree;
 	// DEBUG
 	CurrentGameState = SavedState;
 	return SavedState;
