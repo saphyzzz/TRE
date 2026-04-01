@@ -1,13 +1,7 @@
 // 2025 The Revelate Engine
 
-
 #include "GameManagerSubsystem.h"
-
-#include <iostream>
-
-#include "EngineUtils.h"
 #include "ImageUtils.h"
-
 #if PLATFORM_WINDOWS
 #include "Windows/AllowWindowsPlatformTypes.h"
 #include <windows.h>
@@ -55,7 +49,7 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		return NextGameState;
 	}  
 	// DEBUG
-	SavedState = EGameState::DayThree;
+	SavedState = EGameState::DayTwo;
 	// DEBUG
 	CurrentGameState = SavedState;
 	return SavedState;
@@ -74,5 +68,4 @@ void UGameManagerSubsystem::HandleWallpaper()
 		Wallpaper = FImageUtils::ImportFileAsTexture2D(WallpaperPath);
 	}
 #endif
-	// TODO We'll use a default image or if time incorporate for linux and mac maybe... 
 }
