@@ -5,8 +5,7 @@
 
 FString UCodeEditorWidget::SanitizeCodeLikeInput(const FString& In)
 {
-	// Allowed extra symbols besides letters/numbers
-	// ; , { } ( ) " < >
+	// Allowed symbols besides letters and numbers
 	const FString AllowedSymbols = TEXT(";,{}()\"<>");
 
 	FString Out;
@@ -14,7 +13,7 @@ FString UCodeEditorWidget::SanitizeCodeLikeInput(const FString& In)
 
 	for (TCHAR C : In)
 	{
-		// Remove all whitespace (spaces, tabs, newlines, etc.)
+		// Remove all whitespace 
 		if (FChar::IsWhitespace(C))
 		{
 			continue;

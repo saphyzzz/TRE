@@ -14,6 +14,7 @@ enum class EGameState : uint8 // We don't make this blueprintable as designers d
 	DayThree UMETA(DisplayName="Day Three"),
 	DayFour  UMETA(DisplayName="Day Four"),
 	DayFive  UMETA(DisplayName="Day Five"),
+	DaySix  UMETA(DisplayName="Day Six"),
 	
 };
 
