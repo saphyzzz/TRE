@@ -24,17 +24,19 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 	// SavedState = static_cast<EGameState>(6);
 	// DEBUG
 	
-	// // Create pop up window if player has finished all Days, they can no longer enter the game 
-	// if (static_cast<int>(SavedState) > static_cast<int>(EGameState::DayFive))
-	// {
-	// 	LPCWSTR Content = L"Initiation completed, We will call in time.";
-	// 	int Code = MessageBox(NULL, Content, L"Revelate Corporation", MB_OK);
-	//
-	// 	if (Code == IDOK)
-	// 	{
-	// 		FGenericPlatformMisc::RequestExit(false);
-	// 	}
-	// }
+	/* Create pop up window if player has finished all Days, they can no longer enter the game - in the case
+	 * bTasksCompleted isn't saved. ie whenever player enters a game after already trying to enter after day 5 
+	*/
+	if (static_cast<int>(SavedState) > static_cast<int>(EGameState::DayFive))
+	{
+		LPCWSTR Content = L"Initiation completed, We will call in time.";
+		int Code = MessageBox(NULL, Content, L"Revelate Corporation", MB_OK);
+	
+		if (Code == IDOK)
+		{
+			FGenericPlatformMisc::RequestExit(false);
+		}
+	}
 	if (bTasksCompleted)
 	{
 		EGameState NextGameState;
@@ -42,12 +44,12 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		NextGameState = static_cast<EGameState>(NextState);
 		
 		// DEBUG
-		// NextGameState = EGameState::DayOne;
+		// NextGameState = EGameState::DayThree;
 		// DEBUG
 		
 		CurrentGameState = NextGameState;
 		
-		// Create pop up window if player has finished all Days, they can no longer enter the game 
+		// Create pop up window if player has finished all Days, they can no longer enter the game - 
 		if (static_cast<int>(NextGameState) > static_cast<int>(EGameState::DayFive))
 		{
 			LPCWSTR Content = L"Initiation completed, We will call in time.";
@@ -62,7 +64,7 @@ EGameState UGameManagerSubsystem::SetCurrentGameState(EGameState SavedState, boo
 		return NextGameState;
 	}  
 	// DEBUG
-	// SavedState = EGameState::DayFive;
+	SavedState = EGameState::DayThree;
 	// DEBUG
 	CurrentGameState = SavedState;
 	return SavedState;
